@@ -1,0 +1,89 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "dcFandom";
+    src: url(./fonts/DcFandom-orr4.ttf);
+    font-weight: 400;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'dcFandom', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(4,4,6);
+    background-image: url(./img/backg2.jpg);
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    background-position: top;
+    background-size: 100vmax;
+}
+
+.gameboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: rgb(250, 250, 250);
+}
+
+.time {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.cardHolder {
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+.cardHolder__row {
+    background-color: transparent;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+}
+  
+.card {
+    display: flex;
+    width: 50px;
+    height: 73px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    margin: .3rem;
+}
+
+/* .cardHolder:hover .card {
+    transform: rotateY(180deg);
+} */
+.card--flip {
+    transform: rotateY(180deg);
+}
+
+.card--backFlip {
+    transform: rotateY(180deg);
+}
+
+  
+.flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 50px;
+    height: 73px;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+  
+.flip-box-front {
+    background-color:transparent;
+    color: black;
+}
+  
+.flip-box-back {
+    background-color: transparent;
+    color: white;
+    transform: rotateY(180deg);
+}
