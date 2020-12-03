@@ -1,12 +1,9 @@
 'use strict';
 
 const cards = document.querySelectorAll('.card');
-console.log(cards);
 const cardsFront = document.querySelectorAll('.flip-box-front');
 const cardsBack = document.querySelectorAll('.flip-box-back');
-console.log(cardsBack);
 const imgsArray = [...cardsBack];
-console.log(imgsArray);
 let counter = 0;
 const deckOfCards = ['batman', 'superman', 'wonderwoman', 'greenlantern', 'flash'];
 const doubleDeck = deckOfCards.concat(deckOfCards);
@@ -33,6 +30,7 @@ const shuffleCards = (array) => {
 const insertCards = () => {
     const cardImgs = shuffleCards(doubleDeck);
     cardImgs.forEach((item, index) => cardsBack[index].classList.add(item));
+
 };
 
 const addFlipListener = () => {
@@ -91,8 +89,14 @@ const startTimer = () => {
 
 const isPair = () => {
     let pairs = [];
+    const flashCards = document.querySelectorAll('.flash');
+    const batCards = document.querySelectorAll('.batman');
+    const wonderCards = document.querySelectorAll('.wonderwoman');
+    const superCards = document.querySelectorAll('.superman');
+    const greenCards = document.querySelectorAll('.greenlantern');
     
     
+
     counter = pairs.length
 }
 
