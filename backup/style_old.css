@@ -17,6 +17,7 @@ body {
     background-color: rgb(4,4,6);
     background-image: url(./img/backg2.jpg);
     background-repeat: no-repeat;
+    /* background-position: center; */
     background-position: top;
     background-size: 100vmax;
 }
@@ -24,23 +25,30 @@ body {
 .gameboard {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    text-align: center;
     color: rgb(250, 250, 250);
 }
 
 .time {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .cardHolder {
     -moz-transform: perspective(1000px);
     -webkit-perspective: 1000px;
     perspective: 1000px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 300px;
 }
- 
+
+.cardHolder__row {
+    background-color: transparent;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+}
+  
 .card {
     display: flex;
     width: 50px;
@@ -52,14 +60,9 @@ body {
     margin: .3rem;
 }
 
-.card:hover {
-    cursor: pointer;
-}
-
-.card--pair:hover {
-    cursor: not-allowed;
-}
-
+/* .cardHolder:hover .card {
+    transform: rotateY(180deg);
+} */
 .card--flip {
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
@@ -85,37 +88,15 @@ body {
 }
   
 .flip-box-front {
-    background-image: url(./img/card_back.png);
-    background-position: center;
-    background-size: cover;
+    background-color:transparent;
     color: black;
 }
   
 .flip-box-back {
-    /* background-color: transparent; */
-    /* color: white; */
+    background-color: transparent;
+    color: white;
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
-    background-position: center;
-    background-size: cover;
-    /* background-image: url(./img/batman.png);  */
 }
-
-.batman {
-    background-image: url(./img/batman.png); 
-}
-.superman {
-    background-image: url(./img/superman.png); 
-}
-.wonderwoman {
-    background-image: url(./img/wonderwoman.png); 
-}
-.greenlantern {
-    background-image: url(./img/greenlantern.png); 
-}
-.flash {
-    background-image: url(./img/flash.png); 
-}
-

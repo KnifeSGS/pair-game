@@ -1,16 +1,20 @@
 'use strict';
 
 const cards = document.querySelectorAll('.card');
+console.log(cards);
 const cardsFront = document.querySelectorAll('.flip-box-front');
 const cardsBack = document.querySelectorAll('.flip-box-back');
+console.log(cardsBack);
 const imgsArray = [...cardsBack];
+console.log(imgsArray);
 let counter = 0;
+const deckOfCards = ['batman', 'superman', 'wonderwoman', 'greenlantern', 'flash'];
+const doubleDeck = deckOfCards.concat(deckOfCards);
 
 const playTheGame = () => {
     insertCards();
     addFlipListener();
     addTimerListener();
-
 
     winConditions()
 };
@@ -27,9 +31,8 @@ const shuffleCards = (array) => {
 };
 
 const insertCards = () => {
-    const cardImgs = shuffleCards(imgsArray);
-    const rndImgs = cardImgs.map(item => cardsBack.textContent = item);
-    return rndImgs
+    const cardImgs = shuffleCards(doubleDeck);
+    cardImgs.forEach((item, index) => cardsBack[index].classList.add(item));
 };
 
 const addFlipListener = () => {
@@ -38,24 +41,19 @@ const addFlipListener = () => {
     })
 };
 
-const addBackListener = () => {
-    cardsBack.forEach(card => {
-        card.addEventListener('click', backFlip)
-    })
-};
-
 const removeListener = (target) => {
     target.removeEventListener('click', addFlip)
 };
 
 const addFlip = (event) => {
-    const flippedCard = event.target;
+    const flippedCard = event.target.parentElement;
     flippedCard.classList.toggle('card--flip');
+    removeFlip();
 };
 
 const removeFlip = () => {
-    // const remove = 
-    removeListener(event.target)
+    const data = document.querySelectorAll('[data-card]');
+    
 };
 
 const backFlip = () => {
@@ -91,13 +89,20 @@ const startTimer = () => {
     return timer
 };
 
+const isPair = () => {
+    let pairs = [];
+    
+    
+    counter = pairs.length
+}
+
 const winConditions = () => {
     counter === 5 ? setInterval(restartGame, 5000) : '';
 };
 
 const restartGame = () => {
     const timerContainer = document.querySelector('.time__display');
-    timerContainer.textContent = '0:0';
+    timerContainer.textContent = '00:00';
     clearInterval(timer);
 };
 
