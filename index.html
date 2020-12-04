@@ -1,66 +1,89 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pair-Game</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <div class="gameboard">
         <div class="title">
-            <h2>Pair-Game</h2>
+            <h1>Pair-Game</h1>
         </div>
         <div class="time">
-            <div class="h6">Timer: </div> <div class="time__display h4"> 00:00</div>
+            <div>
+                <h3>Timer: </h3>
+            </div>
+            <div class="time__display">
+                00:00
+            </div>
         </div>
         <div class="cardHolder">
-                <div class="card" data-card='1'>
-                    <div class="flip-box-front"></div>
-                    <div class="flip-box-back"></div>
-                </div>
-                <div class="card" data-card='2'>
-                    <div class="flip-box-front"></div>
-                    <div class="flip-box-back"></div>
-                </div>
-                <div class="card" data-card='3'>
-                    <div class="flip-box-front"></div>
-                    <div class="flip-box-back"></div>
-                </div>
-                <div class="card" data-card='4'>
-                    <div class="flip-box-front"></div>
-                    <div class="flip-box-back"></div>
-                </div>
-                <div class="card" data-card='5'>
-                    <div class="flip-box-front"></div>
-                    <div class="flip-box-back"></div> 
-                </div>
-                <div class="card" data-card='6'>
-                    <div class="flip-box-front"></div>
-                    <div class="flip-box-back"></div>
-                </div>
-                <div class="card" data-card='7'>
-                    <div class="flip-box-front"></div>
-                    <div class="flip-box-back"></div>
-                </div>
-                <div class="card" data-card='8'>
-                    <div class="flip-box-front"></div>
-                    <div class="flip-box-back"></div>
-                </div>
-                <div class="card" data-card='9'>
-                    <div class="flip-box-front"></div>
-                    <div class="flip-box-back"></div>
-                </div>
-                <div class="card" data-card='10'>
-                    <div class="flip-box-front"></div>
-                    <div class="flip-box-back"></div>
-                </div>
+            <div class="card" data-card='1'>
+                <div class="flip-box-front"></div>
+                <div class="flip-box-back"></div>
+            </div>
+            <div class="card" data-card='2'>
+                <div class="flip-box-front"></div>
+                <div class="flip-box-back"></div>
+            </div>
+            <div class="card" data-card='3'>
+                <div class="flip-box-front"></div>
+                <div class="flip-box-back"></div>
+            </div>
+            <div class="card" data-card='4'>
+                <div class="flip-box-front"></div>
+                <div class="flip-box-back"></div>
+            </div>
+            <div class="card" data-card='5'>
+                <div class="flip-box-front"></div>
+                <div class="flip-box-back"></div>
+            </div>
+            <div class="card" data-card='6'>
+                <div class="flip-box-front"></div>
+                <div class="flip-box-back"></div>
+            </div>
+            <div class="card" data-card='7'>
+                <div class="flip-box-front"></div>
+                <div class="flip-box-back"></div>
+            </div>
+            <div class="card" data-card='8'>
+                <div class="flip-box-front"></div>
+                <div class="flip-box-back"></div>
+            </div>
+            <div class="card" data-card='9'>
+                <div class="flip-box-front"></div>
+                <div class="flip-box-back"></div>
+            </div>
+            <div class="card" data-card='10'>
+                <div class="flip-box-front"></div>
+                <div class="flip-box-back"></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Modal -->
+    <div class="modal" tabindex="-1" role="dialog">
+
+        <!-- Modal content -->
+        <div class="modal__content">
+            <header class="modal__head">
+                <h2>Congratulations!</h2>
+                <button class="modal__close">X</i></button>
+            </header>
+            <div class="modal__article">
+                <p>You win!</p>
+                <div class="timerstat"></div>
+            </div>
         </div>
 
     </div>
 
 
-
     <script src="./js/main.js"></script>
 </body>
+
 </html>

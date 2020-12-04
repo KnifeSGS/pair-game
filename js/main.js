@@ -110,7 +110,9 @@ const isPair = (pair, flippedCard) => {
 
 const winConditions = () => {
     counter === 5 ? clearInterval(timer) : '';
+    counter === 5 ? popUp() : '';
     counter === 5 ? setTimeout(restartGame, 5000) : '';
+    counter === 5 ? setTimeout(popDown, 5000) : '';
 };
 
 const restartGame = () => {
@@ -121,3 +123,45 @@ const restartGame = () => {
 };
 
 playTheGame()
+
+
+const modal = document.querySelector('.modal');
+const span = document.querySelector('.modal__close');
+const timerStat = document.querySelector('.timerstat');
+
+const popUp = () => {
+    modal.classList.remove('modal--hide');
+    modal.classList.add('modal--up');
+    printTime();
+};
+
+const popDown = () => {
+    modal.classList.add('modal--hide');
+    modal.classList.remove('modal--up');
+};
+
+const printTime = () => {
+    timerStat.textContent = `Your time was: ${document.querySelector('.time__display').textContent}`
+}
+
+(function modalClose() {
+  closeWithX();
+  eventOutsideModal();
+}
+)();
+
+function closeWithX() {
+  span.addEventListener('click', () => {
+    modal.classList.remove('modal--up');
+    modal.classList.add('modal--hide');
+  });
+};
+
+function eventOutsideModal() {
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.classList.add('modal--hide');
+      modal.classList.remove('modal--up');
+    }
+  })
+};
