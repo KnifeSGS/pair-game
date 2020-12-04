@@ -32,12 +32,8 @@ const insertCards = () => {
 
 const addFlipListener = () => {
     cards.forEach(card => {
-        card.addEventListener('click', addFlip)
-    })
-};
-
-const removeListener = (target) => {
-    target.removeEventListener('click', addFlip)
+        card.addEventListener('click', addFlip);  
+    }) 
 };
 
 const addFlip = (event) => {
@@ -101,12 +97,20 @@ const isPair = (pair, flippedCard) => {
             pairs = [];
             flips = [];
             counter += 1;
+            clickProtection()
+            setTimeout((clickProtection), 900)
             winConditions();
         } else {
+            clickProtection()
+            setTimeout((clickProtection), 900)
             wrongFlip();  
         }
     }  
 };
+
+const clickProtection = () => {
+    cards.forEach(card => {card.classList.toggle('noclick')});
+}
 
 const winConditions = () => {
     counter === 5 ? clearInterval(timer) : '';

@@ -75,6 +75,10 @@ body {
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
+
+.noclick {
+    pointer-events: none;
+}
  
 .flip-box-front, .flip-box-back {
     position: absolute;
