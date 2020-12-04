@@ -12,8 +12,6 @@ const playTheGame = () => {
     insertCards();
     addFlipListener();
     addTimerListener();
-
-    winConditions()
 };
 
 const shuffleCards = (array) => {
@@ -30,7 +28,6 @@ const shuffleCards = (array) => {
 const insertCards = () => {
     const cardImgs = shuffleCards(doubleDeck);
     cardImgs.forEach((item, index) => cardsBack[index].classList.add(item));
-
 };
 
 const addFlipListener = () => {
@@ -46,16 +43,20 @@ const removeListener = (target) => {
 const addFlip = (event) => {
     const flippedCard = event.target.parentElement;
     flippedCard.classList.toggle('card--flip');
-    removeFlip();
-};
-
-const removeFlip = () => {
-    const data = document.querySelectorAll('[data-card]');
-    
+    const flippedCardHero = flippedCard.lastElementChild.classList.value;
+    isPair(flippedCardHero, flippedCard);
 };
 
 const backFlip = () => {
+    cards.forEach(item => item.classList.toggle('card--flip'));
+};
 
+const wrongFlip = () => {
+    setTimeout(function(){
+        flips.forEach(item => item.classList.toggle('card--flip'));
+        flips = [];
+    }, 1000)
+    pairs = [];
 };
 
 const addTimerListener = () => {
@@ -70,11 +71,13 @@ const removeTimerListener = () => {
     })
 };
 
+let timer;
+
 const startTimer = () => {
     const timerContainer = document.querySelector('.time__display');
     let minutes = 0;
     let seconds = 0;
-    const timer = setInterval(() => {
+    timer = setInterval(() => {
         seconds += 1;
         let sec;
         let min;
@@ -87,26 +90,33 @@ const startTimer = () => {
     return timer
 };
 
-const isPair = () => {
-    let pairs = [];
-    const flashCards = document.querySelectorAll('.flash');
-    const batCards = document.querySelectorAll('.batman');
-    const wonderCards = document.querySelectorAll('.wonderwoman');
-    const superCards = document.querySelectorAll('.superman');
-    const greenCards = document.querySelectorAll('.greenlantern');
-    
-    
+let pairs = [];
+let flips = [];
 
-    counter = pairs.length
-}
+const isPair = (pair, flippedCard) => {
+    pairs.push(pair)
+    flips.push(flippedCard)
+    if (pairs.length === 2) {
+        if (pairs.every((item, index, pairs) => item === pairs[0])) {
+            pairs = [];
+            flips = [];
+            counter += 1;
+            winConditions();
+        } else {
+            wrongFlip();  
+        }
+    }  
+};
 
 const winConditions = () => {
-    counter === 5 ? setInterval(restartGame, 5000) : '';
+    counter === 5 ? clearInterval(timer) : '';
+    counter === 5 ? setTimeout(restartGame, 5000) : '';
 };
 
 const restartGame = () => {
     const timerContainer = document.querySelector('.time__display');
     timerContainer.textContent = '00:00';
+    backFlip()
     clearInterval(timer);
 };
 

@@ -30,6 +30,17 @@ body {
 
 .time {
     display: flex;
+    width: 300px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.h6 {
+    font-size: .8rem;
+}
+
+.h4 {
+    font-size: 1.3rem;
 }
 
 .cardHolder {
@@ -56,25 +67,18 @@ body {
     cursor: pointer;
 }
 
-.card--pair:hover {
+.card--flip:hover {
     cursor: not-allowed;
 }
 
 .card--flip {
+    pointer-events: none;
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
-
-.card--backFlip {
-    -webkit-transform: rotateY(-180deg);
-    -moz-transform: rotateY(-180deg);
-    -ms-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
-}
-
-  
+ 
 .flip-box-front, .flip-box-back {
     position: absolute;
     width: 50px;
@@ -92,15 +96,12 @@ body {
 }
   
 .flip-box-back {
-    /* background-color: transparent; */
-    /* color: white; */
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
     background-position: center;
     background-size: cover;
-    /* background-image: url(./img/batman.png);  */
 }
 
 .batman {
