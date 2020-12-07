@@ -115,8 +115,8 @@ const clickProtection = () => {
 const winConditions = () => {
     counter === 5 ? clearInterval(timer) : '';
     counter === 5 ? popUp() : '';
-    counter === 5 ? setTimeout(restartGame, 5000) : '';
     counter === 5 ? setTimeout(popDown, 5000) : '';
+    counter === 5 ? setTimeout(restartGame, 5000) : '';
 };
 
 const restartGame = () => {
@@ -124,6 +124,7 @@ const restartGame = () => {
     timerContainer.textContent = '00:00';
     backFlip()
     clearInterval(timer);
+    playTheGame();
 };
 
 playTheGame()
